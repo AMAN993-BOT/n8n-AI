@@ -31,6 +31,16 @@ services:
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
 
+      - key: N8N_HOST
+        fromService:
+          type: web
+          name: n8n-service
+          envVarKey: RENDER_EXTERNAL_HOSTNAME
+      - key: N8N_PORT
+        value: 443
+      - key: N8N_PROTOCOL
+        value: https        
+
       # These automatically populate connection details 
       # for the Render Postgres database defined below
       - key: DB_TYPE
